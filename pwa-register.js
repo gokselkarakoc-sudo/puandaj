@@ -1,5 +1,7 @@
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+    navigator.serviceWorker.register('./service-worker.js').catch(function (err) {
+      console.error('Service Worker kaydı başarısız:', err);
+    });
   });
 }
