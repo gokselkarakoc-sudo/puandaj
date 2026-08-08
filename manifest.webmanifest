@@ -1,13 +1,11 @@
 {
   "name": "Şantiye Personel Puantaj",
   "short_name": "Puantaj",
-  "description": "Şantiye personel puantaj ve mesai takip uygulaması",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#eceef1",
   "theme_color": "#e9c74a",
-  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "./icon-192.png",

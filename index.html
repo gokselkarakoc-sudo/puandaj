@@ -95,7 +95,6 @@ main{padding-bottom:36px}.view{display:none}.view.active{display:block}
 
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
-
 </head>
 <body>
 <div id="app">
@@ -275,16 +274,7 @@ function doExcel(){
   body+='<h3>GENEL TOPLAMLAR</h3><table><tr><th>PERSONEL</th><th>PUANTAJ TOPLAMI</th><th>MESAİ TOPLAMI</th><th>GENEL TOPLAM</th></tr><tr><td>'+pCount+'</td><td>'+pu+'</td><td>'+me+'</td><td>'+(pu+me)+'</td></tr></table>';
   body+='<h3>NOTLAR</h3><div class="notes">'+notes.map(x=>'• '+esc(x)).join('<br>')+'</div>';
   const htmlDoc='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8">'+css+'</head><body>'+body+'
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./service-worker.js').catch(function(err){
-      console.error('Service Worker kaydı başarısız:', err);
-    });
-  });
-}
-</script>
-
+<script src="./pwa-register.js"></script>
 </body></html>';
   const blob=new Blob(['\ufeff'+htmlDoc],{type:'application/vnd.ms-excel;charset=utf-8'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=reportBaseName()+'.xls';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);toast('Excel indirildi')
